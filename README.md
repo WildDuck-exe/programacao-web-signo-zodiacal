@@ -109,7 +109,7 @@ A tela inicial da aplicação será exibida. ✅
 
 ### Tela inicial
 
-![Tela inicial](assets/imgs/.gitkeep)
+![Tela inicial](assets/imgs/telaInicial.png)
 
 1. Na tela inicial, você verá o título **"Descubra seu Signo"**
 2. Clique no campo de data e **selecione sua data de nascimento** (ou digite no formato `DD/MM/AAAA`)
@@ -118,6 +118,8 @@ A tela inicial da aplicação será exibida. ✅
 ---
 
 ### Tela de resultado
+
+![Tela resultado](assets/imgs/resultado.png)
 
 Após enviar o formulário, você será redirecionado para a página de resultado, que exibirá:
 
