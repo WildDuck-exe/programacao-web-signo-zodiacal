@@ -70,10 +70,10 @@ projeto-ian/
    ```
 3. **Cole a pasta do projeto** dentro de `htdocs`. O resultado deve ser:
    ```
-   C:\xampp\htdocs\projeto-ian\
+   C:\xampp\htdocs\projetoIan\
    ```
 
-> ⚠️ **Atenção:** Se o nome da pasta tiver espaço (ex: `projeto ian`), renomeie para `projeto-ian` (com hífen). Espaços em nomes de pasta podem causar problemas na URL.
+> ⚠️ **Atenção:** Se o nome da pasta tiver espaço (ex: `projeto ian`), renomeie para `projeto-ian` (com hífen) ou '`projetoIan` (camelCase)  . Espaços em nomes de pasta podem causar problemas na URL.
 
 ---
 
@@ -98,7 +98,7 @@ projeto-ian/
 Digite o seguinte endereço na barra do navegador:
 
 ```
-http://localhost/projeto-ian/index.php
+http://localhost/projetoIan/index.php
 ```
 
 A tela inicial da aplicação será exibida. ✅
