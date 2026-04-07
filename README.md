@@ -45,7 +45,10 @@ projetoIan/
 └── 📂 assets/
     ├── 📂 css/
     │   └── 📄 style.css          → Estilos personalizados
-    ├── 📂 imgs/                  → Pasta para imagens (reservada)
+    ├── 📂 imgs/                  → Pasta para imagens
+    │   ├── 📄 telaInicial.png
+    │   │
+    │   └── 📄 resultado.png
     └── 📂 js/                    → Pasta para scripts (reservada)
 ```
 
