@@ -1,0 +1,371 @@
+/* ============================================================
+   style.css — Estilos personalizados da aplicação Signo Zodiacal
+   Complementa o Bootstrap com identidade visual própria.
+   ============================================================ */
+
+/* ---------- Reset e variáveis globais ---------- */
+:root {
+    --cor-primaria:    #4f46e5;   /* índigo vibrante */
+    --cor-secundaria:  #7c3aed;   /* violeta */
+    --cor-acento:      #a78bfa;   /* lavanda */
+    --cor-fundo:       #0f0c29;   /* fundo escuro profundo */
+    --cor-fundo-2:     #1e1b4b;   /* segunda camada */
+    --cor-card:        rgba(255, 255, 255, 0.06);
+    --cor-texto:       #e2e8f0;
+    --cor-texto-muted: #94a3b8;
+    --cor-borda:       rgba(167, 139, 250, 0.25);
+    --radius:          16px;
+    --sombra:          0 20px 60px rgba(79, 70, 229, 0.25);
+    --sombra-card:     0 8px 32px rgba(0, 0, 0, 0.4);
+    --fonte:           'Inter', sans-serif;
+    --transicao:       all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Base geral ---------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte);
+    background: linear-gradient(135deg, var(--cor-fundo) 0%, var(--cor-fundo-2) 50%, #302b63 100%);
+    background-attachment: fixed;
+    color: var(--cor-texto);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- Partículas de fundo decorativas ---------- */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 10%, rgba(167, 139, 250, 0.08) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ---------- Wrapper principal ---------- */
+.app-wrapper {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+/* ---------- Cabeçalho da página ---------- */
+.app-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    animation: fadeDown 0.6s ease both;
+}
+
+.app-header .badge-tag {
+    display: inline-block;
+    background: rgba(167, 139, 250, 0.15);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-acento);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.2rem;
+}
+
+.app-header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.75rem;
+    background: linear-gradient(135deg, #ffffff 0%, var(--cor-acento) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.app-header p.subtitulo {
+    font-size: 1rem;
+    color: var(--cor-texto-muted);
+    font-weight: 400;
+    margin: 0;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+/* ---------- Card principal (glassmorphism) ---------- */
+.glass-card {
+    background: var(--cor-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem;
+    box-shadow: var(--sombra-card);
+    width: 100%;
+    max-width: 480px;
+    animation: fadeUp 0.6s ease 0.1s both;
+    transition: var(--transicao);
+}
+
+.glass-card:hover {
+    box-shadow: var(--sombra);
+    border-color: rgba(167, 139, 250, 0.45);
+}
+
+/* ---------- Formulário ---------- */
+.form-label-custom {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--cor-acento);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control-custom {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 10px;
+    color: var(--cor-texto);
+    font-family: var(--fonte);
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    transition: var(--transicao);
+    width: 100%;
+}
+
+.form-control-custom:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+    color: var(--cor-texto);
+}
+
+/* Cor do ícone de calendário em inputs date (webkit) */
+.form-control-custom::-webkit-calendar-picker-indicator {
+    filter: invert(1) opacity(0.6);
+    cursor: pointer;
+}
+
+/* ---------- Botão principal ---------- */
+.btn-zodiac {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--fonte);
+    cursor: pointer;
+    width: 100%;
+    transition: var(--transicao);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.02em;
+}
+
+.btn-zodiac::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-zodiac:hover::before {
+    left: 100%;
+}
+
+.btn-zodiac:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(79, 70, 229, 0.5);
+}
+
+.btn-zodiac:active {
+    transform: translateY(0);
+}
+
+/* ---------- Botão voltar (secundário) ---------- */
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.07);
+    color: var(--cor-acento);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    padding: 0.65rem 1.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: var(--fonte);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transicao);
+}
+
+.btn-voltar:hover {
+    background: rgba(79, 70, 229, 0.2);
+    border-color: var(--cor-primaria);
+    color: #fff;
+    transform: translateX(-3px);
+}
+
+/* ---------- Card de resultado do signo ---------- */
+.resultado-card {
+    background: var(--cor-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem;
+    box-shadow: var(--sombra-card);
+    width: 100%;
+    max-width: 560px;
+    animation: fadeUp 0.7s ease both;
+    text-align: center;
+}
+
+.resultado-card .signo-emoji {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    animation: pulse 2s infinite ease-in-out;
+    line-height: 1;
+}
+
+.resultado-card .signo-nome {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 0%, var(--cor-acento) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 0.4rem;
+}
+
+.resultado-card .data-informada {
+    font-size: 0.85rem;
+    color: var(--cor-texto-muted);
+    margin-bottom: 2rem;
+    letter-spacing: 0.04em;
+}
+
+.resultado-card .data-informada span {
+    color: var(--cor-acento);
+    font-weight: 600;
+}
+
+.divider-linha {
+    border: none;
+    border-top: 1px solid var(--cor-borda);
+    margin: 1.5rem 0;
+}
+
+.resultado-card .descricao-texto {
+    font-size: 0.975rem;
+    line-height: 1.75;
+    color: var(--cor-texto-muted);
+    text-align: left;
+}
+
+.periodo-badge {
+    display: inline-block;
+    background: rgba(79, 70, 229, 0.15);
+    border: 1px solid rgba(79, 70, 229, 0.4);
+    color: #a5b4fc;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+/* ---------- Alertas de erro ---------- */
+.alerta-erro {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    border-radius: 10px;
+    color: #fca5a5;
+    padding: 1rem 1.2rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+    animation: fadeUp 0.4s ease both;
+}
+
+.alerta-erro i {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+}
+
+/* ---------- Rodapé ---------- */
+.app-footer {
+    margin-top: 2.5rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: rgba(148, 163, 184, 0.5);
+    animation: fadeUp 0.6s ease 0.3s both;
+}
+
+/* ---------- Mapa dos emojis por signo ---------- */
+/* (usados via atributo data-signo no PHP) */
+
+/* ---------- Animações ---------- */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.07); }
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 576px) {
+    .glass-card,
+    .resultado-card {
+        padding: 2rem 1.25rem;
+        border-radius: 12px;
+    }
+
+    .app-wrapper {
+        padding: 1.5rem 1rem;
+    }
+
+    .btn-zodiac {
+        padding: 0.85rem 1rem;
+    }
+}
