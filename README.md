@@ -32,7 +32,7 @@ Antes de começar, você precisa ter instalado em seu computador:
 ## 📁 Estrutura do projeto
 
 ```
-projeto-ian/
+projetoIan/
 │
 ├── 📄 index.php                  → Página inicial (formulário)
 ├── 📄 show_zodiac_sign.php       → Página de resultado (lógica PHP)
